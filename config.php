@@ -1,24 +1,29 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/opencart/');
-define('HTTP_IMAGE', 'http://localhost/opencart/image/');
-define('HTTP_ADMIN', 'http://localhost/opencart/admin/');
+$baseUri = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER['SCRIPT_FILENAME']));
+$http = str_replace(array('/', '\\'), '/', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $baseUri . '/');
+
+define('HTTP_SERVER', 'http://'.$host.'/');
+define('HTTP_IMAGE', 'http://'.$host.'/image/');
+define('HTTP_ADMIN', 'http://'.$host.'/admin/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/opencart/');
-define('HTTPS_IMAGE', 'http://localhost/opencart/image/');
+define('HTTPS_SERVER', 'http://'.$host.'/');
+define('HTTPS_IMAGE', 'http://'.$host.'/image/');
 
 // DIR
-define('DIR_APPLICATION', 'D:\xampp\htdocs\opencart/catalog/');
-define('DIR_SYSTEM', 'D:\xampp\htdocs\opencart/system/');
-define('DIR_DATABASE', 'D:\xampp\htdocs\opencart/system/database/');
-define('DIR_LANGUAGE', 'D:\xampp\htdocs\opencart/catalog/language/');
-define('DIR_TEMPLATE', 'D:\xampp\htdocs\opencart/catalog/view/theme/');
-define('DIR_CONFIG', 'D:\xampp\htdocs\opencart/system/config/');
-define('DIR_IMAGE', 'D:\xampp\htdocs\opencart/image/');
-define('DIR_CACHE', 'D:\xampp\htdocs\opencart/system/cache/');
-define('DIR_DOWNLOAD', 'D:\xampp\htdocs\opencart/download/');
-define('DIR_LOGS', 'D:\xampp\htdocs\opencart/system/logs/');
+$dir = dirname(__FILE__);
+define('DIR_APPLICATION', $dir . '/catalog/');
+define('DIR_SYSTEM', $dir . '/system/');
+define('DIR_DATABASE', $dir . '/system/database/');
+define('DIR_LANGUAGE', $dir . '/catalog/language/');
+define('DIR_TEMPLATE', $dir . '/catalog/view/theme/');
+define('DIR_CONFIG', $dir . '/system/config/');
+define('DIR_IMAGE', $dir . '/image/');
+define('DIR_CACHE', $dir . '/system/cache/');
+define('DIR_DOWNLOAD', $dir . '/download/');
+define('DIR_LOGS', $dir . '/system/logs/');
+
 
 // DB
 define('DB_DRIVER', 'mysql');
